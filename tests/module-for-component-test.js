@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import { moduleForComponent } from 'ember-mocha';
+import { describeComponent } from 'ember-mocha';
 import { setResolverRegistry } from 'tests/test-support/resolver';
 
 var PrettyColor = Ember.Component.extend({
@@ -24,7 +24,7 @@ var config = {
   }
 };
 
-moduleForComponent('x-foo', config, function() {
+describeComponent('x-foo', config, function() {
   it('should render', function() {
     var component = this.subject();
     expect(component._state).to.equal('preRender');
@@ -67,7 +67,7 @@ moduleForComponent('x-foo', config, function() {
   });
 });
 
-moduleForComponent('pretty-color', config, function() {
+describeComponent('pretty-color', config, function() {
   it("has the pretty-color className", function() {
     // first call to this.$() renders the component.
     expect(this.$().is('.pretty-color')).to.be.ok;

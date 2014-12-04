@@ -1,4 +1,4 @@
-import { moduleFor } from 'ember-mocha';
+import { describeModule } from 'ember-mocha';
 import { setResolverRegistry } from 'tests/test-support/resolver';
 
 function setupRegistry() {
@@ -34,7 +34,7 @@ var config = {
   }
 };
 
-moduleFor('component:x-foo', 'TestModule callbacks', config, function() {
+describeModule('component:x-foo', 'TestModule callbacks', config, function() {
   it("should call the beforeSetup callback prior to any test setup", function() {
     expect(beforeSetupOk).to.be.ok;
     expect(b).to.equal(1);

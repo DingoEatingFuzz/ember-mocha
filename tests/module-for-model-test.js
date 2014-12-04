@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import { moduleForModel } from 'ember-mocha';
+import { describeModel } from 'ember-mocha';
 import { setResolverRegistry } from 'tests/test-support/resolver';
 
 var Whazzit = DS.Model.extend({ gear: DS.attr('string') });
@@ -56,7 +56,7 @@ var appAdapterConfig = {
   }
 };
 
-moduleForModel('whazzit', 'model:whazzit without adapter', config, function() {
+describeModel('whazzit', 'model:whazzit without adapter', config, function() {
   it('should have a store', function() {
     var store = this.store();
     expect(store instanceof DS.Store).to.be.ok;
@@ -78,7 +78,7 @@ moduleForModel('whazzit', 'model:whazzit without adapter', config, function() {
   });
 });
 
-moduleForModel('whazzit', 'model:whazzit with custom adapter', adapterConfig, function() {
+describeModel('whazzit', 'model:whazzit with custom adapter', adapterConfig, function() {
   it('uses the WhazzitAdapter', function() {
     var model = this.subject(),
       store = this.store();
@@ -99,7 +99,7 @@ moduleForModel('whazzit', 'model:whazzit with custom adapter', adapterConfig, fu
   });
 });
 
-moduleForModel('whazzit', 'model:whazzit with application adapter', appAdapterConfig, function() {
+describeModel('whazzit', 'model:whazzit with application adapter', appAdapterConfig, function() {
   it('uses the ApplicationAdapter', function() {
     var model = this.subject(),
         store = this.store();
