@@ -1,7 +1,6 @@
-var emberQunit = requireModule("ember-qunit");
+var emberMocha = requireModule("ember-mocha");
 
-window.moduleFor = emberQunit.moduleFor;
-window.moduleForComponent = emberQunit.moduleForComponent;
-window.moduleForModel = emberQunit.moduleForModel;
-window.test = emberQunit.test;
-window.setResolver = emberQunit.setResolver;
+window.moduleFor = emberMocha.moduleFor;
+window.moduleForComponent = emberMocha.moduleForComponent;
+window.moduleForModel = emberMocha.moduleForModel;
+window.setResolver = emberMocha.setResolver;

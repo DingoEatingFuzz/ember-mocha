@@ -96,8 +96,14 @@ var vendor = concat('bower_components', {
 });
 
 var mocha = new Funnel('bower_components', {
-  srcDir: '/mocha/mocha',
+  srcDir: 'mocha/',
   files: ['mocha.js', 'mocha.css'],
+  destDir: '/assets'
+});
+
+var chai = new Funnel('bower_components', {
+  srcDir: 'chai/',
+  files: ['chai.js'],
   destDir: '/assets'
 });
 
@@ -109,8 +115,13 @@ var testIndex = new Funnel('tests', {
 
 var testSupport = concat('bower_components', {
   inputFiles: ['ember-cli-shims/app-shims.js',
-    'ember-cli-test-loader/test-loader.js'],
+    ],
   outputFile: '/assets/test-support.js'
 });
 
-module.exports = mergeTrees([loader, main, mainWithTests, globalizedMain, vendor, testIndex, mocha, testSupport, generatedBowerConfig]);
+var testLoader = concat('support', {
+  inputFiles: ['test-loader.js'],
+  outputFile: '/assets/test-loader.js'
+});
+
+module.exports = mergeTrees([loader, main, mainWithTests, globalizedMain, vendor, testIndex, mocha, chai, testSupport, testLoader, generatedBowerConfig]);
